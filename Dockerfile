@@ -1,6 +1,15 @@
-FROM reg.netcitylife.ru/docker/base/alpine:3.15.0
+FROM golang:1.18-alpine3.15 AS builder
 
-COPY rootfs /
+WORKDIR /go/src/app
+
+COPY ./ ./
+
+RUN go mod download \
+    && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w"  -o app cmd/backup-exporter/main.go
+
+FROM reg.my-itclub.ru/docker/base/alpine:latest
+
+COPY --from=builder /go/src/app/app /opt/backup-exporter
 
 USER 0
 
