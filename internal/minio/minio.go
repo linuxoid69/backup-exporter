@@ -7,7 +7,7 @@ import (
 
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
-	"gitlab.netcitylife.ru/monitoring/backup-exporter/internal/helpers"
+	"github.com/linuxoid69/backup-exporter/internal/helpers"
 )
 
 type Client struct {

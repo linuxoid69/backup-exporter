@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"gitlab.netcitylife.ru/monitoring/backup-exporter/internal/metrics"
-	"gitlab.netcitylife.ru/monitoring/backup-exporter/internal/minio"
+	"github.com/linuxoid69/backup-exporter/internal/metrics"
+	"github.com/linuxoid69/backup-exporter/internal/minio"
 )
 
 func main() {
