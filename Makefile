@@ -1,13 +1,12 @@
 # Makefile
 .PHONY:	build push
 
-PREFIX = linuxoid69/backup-exporter
+PREFIX = linuxoid69
 IMAGE = backup-exporter
-VERSION = 0.1.1
-TAG = $(VERSION)
+TAG = 0.1.1
 
 build:
-	docker build --platform linux/amd64 --build-arg VERSION=$(VERSION) --pull -t $(PREFIX)/$(IMAGE):$(TAG) .
+	docker build --platform linux/amd64 --pull -t $(PREFIX)/$(IMAGE):$(TAG) .
 
 push:
 	docker push $(PREFIX)/$(IMAGE):$(TAG)
