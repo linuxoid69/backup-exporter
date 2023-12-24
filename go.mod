@@ -1,7 +1,7 @@
 // module backup-exporter
 module github.com/linuxoid69/backup-exporter
 
-go 1.20
+go 1.21
 
 require (
 	github.com/gin-gonic/gin v1.9.1
