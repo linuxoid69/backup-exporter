@@ -3,11 +3,11 @@ package minio
 import (
 	"context"
 	"fmt"
+	"slices"
 	"strings"
 
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/linuxoid69/backup-exporter/internal/helpers"
 )
 
 type Client struct {
@@ -44,7 +44,7 @@ func (c *Client) GetListTopDir(ctx *context.Context, minioClient *minio.Client) 
 // FilterDirs - remove exclude directories from directory list.
 func FilterDirs(sourceDirs []string, excludeDirs []string) (destDirs []string) {
 	for _, d := range sourceDirs {
-		if !helpers.Contains(excludeDirs, strings.Trim(d, "/")) {
+		if slices.Contains(excludeDirs, strings.Trim(d, "/")) {
 			destDirs = append(destDirs, d)
 		}
 	}

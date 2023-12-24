@@ -3,7 +3,7 @@
 
 PREFIX = linuxoid69
 IMAGE = backup-exporter
-TAG = 0.1.1
+TAG = 0.1.2
 
 build:
 	docker build --platform linux/amd64 --pull -t $(PREFIX)/$(IMAGE):$(TAG) .
